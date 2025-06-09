@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="NoteTrack is your all-in-one music composition and planning studio. Write down ideas, explore chord progressions, and manage your songwriting process."
+        />
+
+        <title>NoteTrack | Contact</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <style type="text/tailwindcss">
+            /* used from tailwind documentation for toggling dark mode: https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually */
+            @custom-variant dark (&:where(.dark, .dark *));
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    </head>
+    <body class="bg-white text-gray-900 dark:bg-teal-950 dark:text-white">
+        <!-- Navbar -->
+        <header
+            class="sticky top-0 bg-emerald-200 dark:bg-teal-900 text-white shadow z-50"
+        >
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-800 dark:text-gray-50"
+            >
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex">
+                        <i
+                            data-feather="music"
+                            class="w-6 h-6 mt-1 text-gray-800 dark:text-gray-50"
+                        ></i>
+                        <a
+                            href="index.html"
+                            class="text-xl font-bold text-gray-800 dark:text-gray-50"
+                            >NoteTrack</a
+                        >
+                    </div>
+                    <nav class="space-x-4 hidden md:block">
+                        <a href="index.html" class="hover:text-indigo-400"
+                            >Home</a
+                        >
+                        <a href=" /tasks.html" class="hover:text-indigo-400"
+                            >Tasks</a
+                        >
+                        <a href=" /studio.html" class="hover:text-indigo-400"
+                            >Studio</a
+                        >
+                        <a href=" /about.html" class="hover:text-indigo-400"
+                            >About</a
+                        >
+                        <a href=" /contact.html" class="hover:text-indigo-400"
+                            >Contact</a
+                        >
+                        <button
+                            id="toggle-dark"
+                            class="ml-4 p-2 rounded hover:bg-gray-700 hover:text-indigo-400"
+                        >
+                            <i
+                                data-feather="moon"
+                                id="dark-icon"
+                                class="w-5 h-5 hover:text-indigo-500"
+                            ></i>
+                            <i
+                                data-feather="sun"
+                                id="light-icon"
+                                class="w-5 h-5 hover:text-yellow-500"
+                            ></i>
+                        </button>
+                    </nav>
+
+                    <!-- Hamburger -->
+                    <button
+                        id="mobileMenuBtn"
+                        class="hidden hover:cursor-pointer"
+                        aria-label="Toggle menu"
+                    >
+                        <i
+                            data-feather="menu"
+                            class="w-6 h-6 text-gray-700 dark:text-gray-300"
+                        ></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <!-- Mobile Menu -->
+        <div
+            id="mobileMenu"
+            class="hidden md:hidden bg-white dark:bg-gray-700 border-t border-gray-200 dark:border-gray-700 px-4 py-2 text-right"
+        >
+            <a href="index.html" class="block py-1 hover:text-indigo-400"
+                >Home</a
+            >
+            <a href="tasks.html" class="block py-1 hover:text-indigo-400"
+                >Tasks</a
+            >
+            <a href="about.html" class="block py-1 hover:text-indigo-400"
+                >About</a
+            >
+            <a href="contact.html" class="block py-1 hover:text-indigo-400"
+                >Contact</a
+            >
+            <a href="studio.html" class="block py-1 hover:text-indigo-400"
+                >Studio</a
+            >
+            <div
+                id="mobile-toggle-dark"
+                class="block py-1 hover:text-indigo-400"
+            >
+                Dark/ Light Mode
+            </div>
+        </div>\
+        
+        <!-- Contact Section -->
+        <main class="p-6 max-w-3xl mx-auto">
+            <h1 class="text-3xl font-bold mb-6 text-center">Contact Us</h1>
+            <p class="text-lg text-center mb-4">
+                Reach out with questions, feedback, or any feature ideas!
+            </p>
+            <form id="contactForm" class="space-y-4">
+                <div>
+                    <label for="name" class="block mb-1 font-medium"
+                        >Name</label
+                    >
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Name"
+                        required
+                        class="w-full px-4 py-2 border rounded dark:bg-teal-900 dark:text-white dark:border-gray-700"
+                    />
+                </div>
+                <div>
+                    <label for="email" class="block mb-1 font-medium"
+                        >Email</label
+                    >
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="emailname@mail.com"
+                        required
+                        class="w-full px-4 py-2 border rounded dark:bg-teal-900 dark:text-white dark:border-gray-700"
+                    />
+                </div>
+                <div>
+                    <label for="subject" class="block mb-1 font-medium"
+                        >Subject</label
+                    >
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        placeholder="Subject"
+                        required
+                        class="w-full px-4 py-2 border rounded dark:bg-teal-900 dark:text-white dark:border-gray-700"
+                    />
+                </div>
+                <div>
+                    <label for="message" class="block mb-1 font-medium"
+                        >Message</label
+                    >
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        placeholder="Type your message here..."
+                        required
+                        class="w-full px-4 py-2 border rounded dark:bg-teal-900 dark:text-white dark:border-gray-700"
+                    ></textarea>
+                </div>
+                <div class="flex justify-center mb-8">
+                    <button
+                        type="submit"
+                        class="bg-emerald-200 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-700 hover:text-indigo-400 transition"
+                    >
+                        Send Message
+                    </button>
+                </div>
+            </form>
+
+            <section class="max-w-4xl mx-auto px-4 py-10">
+                <h1 class="text-3xl text-center font-bold mb-6">Meet Us</h1>
+
+                <!-- Google Maps Embed -->
+                <div class="rounded flex justify-center mb-10">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.850835952231!2d23.829059861922072!3d38.00393959880845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a199709f059559%3A0xad1dacf4713268b2!2sAmerican%20College%20of%20Greece!5e0!3m2!1sen!2sgr!4v1749496293468!5m2!1sen!2sgr"
+                        width="800"
+                        height="600"
+                        style="border: 0"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                </div>
+
+                <!-- Social Media Links -->
+                <h2 class="text-2xl text-center font-semibold mb-4">
+                    Connect With Us
+                </h2>
+                <div
+                    class="flex justify-center space-x-6 text-gray-700 dark:text-gray-200"
+                >
+                    <a
+                        href="https://github.com/1sooophiii/ITC4214_internet_programming_midterm_project"
+                        target="_blank"
+                        aria-label="GitHub"
+                        class="hover:text-indigo-400"
+                    >
+                        <i data-feather="github"></i>
+                    </a>
+                    <a
+                        href="mailto:s.polychroni@acg.edu"
+                        target="_blank"
+                        aria-label="Email"
+                        class="hover:text-indigo-400"
+                    >
+                        <i data-feather="mail"></i>
+                    </a>
+                    <a
+                        href="https://instagram.com/"
+                        target="_blank"
+                        aria-label="Instagram"
+                        class="hover:text-indigo-400"
+                    >
+                        <i data-feather="instagram"></i>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer
+            class="bg-gray-100 dark:bg-teal-900 text-gray-600 dark:text-gray-300 py-6 mt-12"
+        >
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <p class="mb-2">© 2025 NoteTrack</p>
+                <div
+                    class="flex justify-center space-x-6 text-gray-00 dark:text-gray-200 text-2xl"
+                >
+                    
+                    <a
+                        href="https://github.com/1sooophiii/ITC4214_internet_programming_midterm_project"
+                        target="_blank"
+                        aria-label="GitHub"
+                        class="hover:text-indigo-400"
+                    >
+                        <i data-feather="github"></i>
+                    </a>
+                    <a
+                        href="mailto:s.polychroni@acg.edu"
+                        target="_blank"
+                        aria-label="Email"
+                        class="hover:text-indigo-400"
+                    >
+                        <i data-feather="mail"></i>
+                    </a>
+                    <a
+                        href="https://instagram.com/"
+                        target="_blank"
+                        aria-label="Instagram"
+                        class="hover:text-indigo-400"
+                    >
+                        <i data-feather="instagram"></i>
+                    </a>
+                </div>
+        </footer>
+
+        <!-- for feather icons-->
+        <!-- replace function replaces all i elements with svg tags -->
+        <script>
+            feather.replace();
+        </script>
+        <script src="https://unpkg.com/feather-icons"></script>
+
+        <!--javascript scripts-->
+        <script src="darkmode.js"></script>
+        <script src="layout.js"></script>
+    </body>
+</html>
