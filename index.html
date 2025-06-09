@@ -1,10 +1,267 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website first version</title>
-</head>
-<body>
-</body>
+<!-- Use the scroll-smooth utility to enable smooth scrolling within html -->
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="NoteTrack is your all-in-one music composition and planning studio. Write down ideas, explore chord progressions, and manage your songwriting process."
+        />
+
+        <title>NoteTrack | Home</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <style type="text/tailwindcss">
+            /* used from tailwind documentation for toggling dark mode: https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually */
+            @custom-variant dark (&:where(.dark, .dark *));
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    </head>
+    <!-- all the elements have a bgcolor class and a dark:<color> class that is being used in the dark theme -->
+    <body class="bg-white text-gray-900 dark:bg-teal-950 dark:text-white">
+        <!-- Navbar -->
+        <!--sticky: is for the whole navbar to always stay on top of the page
+        top-0: position navbar on the top of the page 
+        shadow: adds drop shadow, z-50: z index is the third dimension and gets the navbar to be on front-->
+        <header
+            class="sticky top-0 bg-emerald-200 dark:bg-teal-900 text-white shadow z-50"
+        >
+            <!-- max-w-7xl: Max width for content
+            mx-auto: Center horizontally 
+            px-4: horizontal padding (also for small -sm and large -lg depending on screen size)-->
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-800 dark:text-gray-50"
+            >
+                <!--flex: arrange elements in a container
+            justify-between: leave space between elements pushing them on the edges
+            items-center: centers items vertically
+            h-16: height
+            -->
+                <div class="flex justify-between items-center h-16">
+                    <!-- text-xl: extra large font size
+                  font-bold: bold text-->
+                    <div class="flex">
+                        <i
+                            data-feather="music"
+                            class="w-6 h-6 mt-1 text-gray-800 dark:text-gray-50"
+                        ></i>
+                        <a
+                            href="index.html"
+                            class="text-xl font-bold text-gray-800 dark:text-gray-50"
+                            >NoteTrack</a
+                        >
+                    </div>
+                    <!-- space on both x sides of anchor elements -->
+                    <nav class="space-x-4 hidden md:block">
+                        <a href="index.html" class="hover:text-indigo-400"
+                            >Home</a
+                        >
+                        <a href=" /tasks.html" class="hover:text-indigo-400"
+                            >Tasks</a
+                        >
+                        <a href=" /studio.html" class="hover:text-indigo-400"
+                            >Studio</a
+                        >
+                        <a href=" /about.html" class="hover:text-indigo-400"
+                            >About</a
+                        >
+                        <a href=" /contact.html" class="hover:text-indigo-400"
+                            >Contact</a
+                        >
+                        <!-- ml-4: left margin, p-2: padding, rounded: rounded corners on button, 
+                        hover: changes how the button will look when hovering, cursor pointer: changes cursor when hovering -->
+                        <button
+                            id="toggle-dark"
+                            class="ml-4 p-2 rounded cursor-pointer"
+                        >
+                            <i
+                                data-feather="moon"
+                                id="dark-icon"
+                                class="w-5 h-5 hover:text-indigo-500"
+                            ></i>
+                            <i
+                                data-feather="sun"
+                                id="light-icon"
+                                class="w-5 h-5 hover:text-yellow-500"
+                            ></i>
+                        </button>
+                    </nav>
+                    <!-- Hamburger button -->
+                    <button
+                        id="mobileMenuBtn"
+                        class="hidden hover:cursor-pointer"
+                        aria-label="Toggle mobile menu"
+                    >
+                        <i
+                            data-feather="menu"
+                            class="w-6 h-6 text-gray-700 dark:text-gray-300"
+                        ></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile Menu -->
+        <!-- Hidden on medium and large screens -->
+        <!--block: will put the element on its own line and fill its parent-->
+        <div
+            id="mobileMenu"
+            class="hidden md:hidden bg-white dark:bg-gray-700 border-t border-gray-200 dark:border-gray-700 px-4 py-2 text-right"
+        >
+            <a href="index.html" class="block py-1 hover:text-indigo-400"
+                >Home</a
+            >
+            <a href="tasks.html" class="block py-1 hover:text-indigo-400"
+                >Tasks</a
+            >
+            <a href="about.html" class="block py-1 hover:text-indigo-400"
+                >About</a
+            >
+            <a href="contact.html" class="block py-1 hover:text-indigo-400"
+                >Contact</a
+            >
+            <a href="studio.html" class="block py-1 hover:text-indigo-400"
+                >Studio</a
+            >
+            <div
+                id="mobile-toggle-dark"
+                class="block py-1 hover:text-indigo-400"
+            >
+                Dark/ Light Mode
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="text-center py-16 px-4">
+            <h1 class="text-5xl font-bold mb-4">Welcome to NoteTrack</h1>
+            <p
+                class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+            >
+                The perfect place to keep track and organize your musical ideas!
+            </p>
+            <p
+                class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+            >
+                Use the studio to experiment using music theory tips and the
+                tasks to manage your composition process.
+            </p>
+            <a
+                href=" /tasks.html"
+                class="mt-6 inline-block bg-emerald-200 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-700 hover:text-indigo-400"
+            >
+                Start Creating
+            </a>
+        </section>
+
+        <!-- Features -->
+        <section class="py-16 bg-gray-100 dark:bg-teal-900">
+            <div class="max-w-6xl mx-auto px-4">
+                <!-- gap: change the gap between columns and rows-->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="flex justify-center">
+                            <i
+                                data-feather="refresh-cw"
+                                class="w-5 h-5 mt-1 mr-1 text-gray-700 dark:text-gray-300"
+                            ></i>
+                            <h3 class="text-xl font-semibold mb-2">
+                                Task-Based Workflow
+                            </h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Organize your compostition and songwritting ideas
+                            into clear, manageable tasks.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex justify-center">
+                            <i
+                                data-feather="music"
+                                class="w-5 h-5 mt-1 mr-1 text-gray-700 dark:text-gray-300"
+                            ></i>
+                            <h3 class="text-xl font-semibold mb-2">
+                                Studio Playground
+                            </h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Choose keys, chord progressions, instrumentation and
+                            moods.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex justify-center">
+                            <i
+                                data-feather="bar-chart-2"
+                                class="w-5 h-5 mt-1 mr-1 text-gray-700 dark:text-gray-300"
+                            ></i>
+                            <h3 class="text-xl font-semibold mb-2">
+                                Track Progress
+                            </h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Keep track of your compositions and songwritting
+                            progress.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Activity -->
+        <section class="py-16 px-4 max-w-4xl mx-auto">
+            <div class="flex justify-center">
+                <i
+                    data-feather="clock"
+                    class="w-7 h-7 mt-1 mr-2 text-gray-700 dark:text-gray-300"
+                ></i>
+                <h2 class="text-3xl font-bold mb-6 text-center">
+                    Latest Activity
+                </h2>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 text-center mb-4">
+                No tasks yet. Your latest activity will appear here!
+            </p>
+            <!-- TODO: recent tasks will dynamically fill the list with JS/jQuery -->
+            <ul class="space-y-4">
+                <li
+                    class="bg-white dark:bg-teal-900 p-4 rounded shadow text-gray-700 dark:text-gray-100"
+                >
+                    Example: “Chorus melody finalized” - 2 days ago
+                </li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer
+            class="bg-gray-100 dark:bg-teal-900 text-gray-600 dark:text-gray-300 py-6 mt-12"
+        >
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <p class="mb-2">© 2025 NoteTrack</p>
+                <div class="space-x-4 flex justify-center">
+                    <i
+                        data-feather="github"
+                        class="w-5 h-5 mr-1 text-gray-600 dark:text-gray-300"
+                    ></i>
+                    <a
+                        href="https://github.com/1sooophiii/ITC4214_internet_programming_midterm_project"
+                        class="hover:text-indigo-400"
+                    >
+                        GitHub</a
+                    >
+                </div>
+            </div>
+        </footer>
+
+        <!-- for feather icons-->
+        <!-- replace function replaces all i elements with svg tags -->
+        <script>
+            feather.replace();
+        </script>
+        <script src="https://unpkg.com/feather-icons"></script>
+
+        <!--javascript scripts-->
+        <script src="darkmode.js"></script>
+        <script src="layout.js"></script>
+    </body>
 </html>
