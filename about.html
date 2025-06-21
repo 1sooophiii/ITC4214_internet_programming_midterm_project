@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="NoteTrack - A songwriting task manager and creative studio for musicians."
+        />
+        <title>NoteTrack | About</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <style type="text/tailwindcss">
+            /* used from tailwind documentation for toggling dark mode: https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually */
+            @custom-variant dark (&:where(.dark, .dark *));
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+        <script src="https://unpkg.com/feather-icons" defer></script>
+
+        <!--javascript scripts-->
+        <script src="darkmode.js " defer></script>
+        <script src="layout.js" defer></script>
+    </head>
+    <body class="bg-white text-gray-900 dark:bg-teal-950 dark:text-white">
+        <!-- Navbar -->
+        <header
+            class="sticky top-0 bg-emerald-200 dark:bg-teal-900 text-white shadow z-50"
+        >
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-800 dark:text-gray-50"
+            >
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex">
+                        <i
+                            data-feather="music"
+                            class="w-6 h-6 mt-1 text-gray-800 dark:text-gray-50"
+                        ></i>
+                        <a
+                            href="index.html"
+                            class="text-xl font-bold text-gray-800 dark:text-gray-50"
+                            >NoteTrack</a
+                        >
+                    </div>
+                    <nav class="space-x-4 hidden md:block">
+                        <a href="index.html" class="hover:text-indigo-400"
+                            >Home</a
+                        >
+                        <a href=" /tasks.html" class="hover:text-indigo-400"
+                            >Tasks</a
+                        >
+                        <a href=" /studio.html" class="hover:text-indigo-400"
+                            >Studio</a
+                        >
+                        <a href=" /about.html" class="hover:text-indigo-400"
+                            >About</a
+                        >
+                        <a href=" /contact.html" class="hover:text-indigo-400"
+                            >Contact</a
+                        >
+                        <button
+                            id="toggle-dark"
+                            class="ml-4 p-2 rounded hover:bg-gray-700 hover:text-indigo-400"
+                        >
+                            <i
+                                data-feather="moon"
+                                id="dark-icon"
+                                class="w-5 h-5 hover:text-indigo-500"
+                            ></i>
+                            <i
+                                data-feather="sun"
+                                id="light-icon"
+                                class="w-5 h-5 hover:text-yellow-500"
+                            ></i>
+                        </button>
+                    </nav>
+
+                    <!-- Hamburger -->
+                    <button
+                        id="mobileMenuBtn"
+                        class="hidden hover:cursor-pointer"
+                        aria-label="Toggle menu"
+                    >
+                        <i
+                            data-feather="menu"
+                            class="w-6 h-6 text-gray-700 dark:text-gray-300"
+                        ></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <!-- Mobile Menu -->
+        <div
+            id="mobileMenu"
+            class="hidden md:hidden bg-white dark:bg-gray-700 border-t border-gray-200 dark:border-gray-700 px-4 py-2 text-right"
+        >
+            <a href="index.html" class="block py-1 hover:text-indigo-400"
+                >Home</a
+            >
+            <a href="tasks.html" class="block py-1 hover:text-indigo-400"
+                >Tasks</a
+            >
+            <a href="about.html" class="block py-1 hover:text-indigo-400"
+                >About</a
+            >
+            <a href="contact.html" class="block py-1 hover:text-indigo-400"
+                >Contact</a
+            >
+            <a href="studio.html" class="block py-1 hover:text-indigo-400"
+                >Studio</a
+            >
+            <div
+                id="mobile-toggle-dark"
+                class="block py-1 hover:text-indigo-400"
+            >
+                Dark/ Light Mode
+            </div>
+        </div>
+        <main>
+            <!-- About Section -->
+            <section class="text-center py-16 px-4">
+                <h1 class="text-4xl font-bold mb-4">About NoteTrack</h1>
+                <p class="text-lg">
+                    Built to help musicians turn inspiration into organized
+                    tasks! Now musicians can keep track of their creative
+                    process and return to their notes any time when they are
+                    ready to compose.
+                </p>
+                <p class="text-lg">Meet our team and learn more about us!</p>
+            </section>
+
+            <!-- Team Section -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-center">Our Team</h2>
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+                >
+                    <!-- Team Member Card -->
+                    <div
+                        class="bg-gray-100 dark:bg-teal-900 dark:text-gray-200 p-4 rounded-lg shadow text-center"
+                    >
+                        <img src="images/mollie-sivaram-P2igqqmbiKE-unsplash.webp" alt="Portrait of Sophia, Founder and Developer"
+                        class="mx-auto rounded-full mb-3" />
+                        <h3 class="text-xl font-semibold">Sophia</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            Founder and Developer
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-gray-100 dark:bg-teal-900 dark:text-gray-200 p-4 rounded-lg shadow text-center"
+                    >
+                        <img src="images/roy-wen-bolLU6KLThc-unsplash.webp" alt="Portrait of Alex, "
+                        class="mx-auto rounded-full mb-3" />
+                        <h3 class="text-xl font-semibold">Alex</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            Marketing Manager
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-gray-100 dark:bg-teal-900 dark:text-gray-200 p-4 rounded-lg shadow text-center"
+                    >
+                        <img
+                            src="images/karsten-winegeart-oU6KZTXhuvk-unsplash.webp"
+                            alt="Portrait of Jamie, UX Designer."
+                            class="mx-auto rounded-full mb-3"
+                        />
+                        <h3 class="text-xl font-semibold">Jamie</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            UX Designer
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Simple Carousel (testimonial/quote images) -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-center">What Musicians Say</h2>
+                <div
+                    class="flex space-x-4 overflow-x-auto snap-x snap-mandatory pb-4"
+                >
+                    <div
+                        class="snap-start shrink-0 w-64 bg-gray-200 dark:bg-teal-900 dark:text-gray-200 p-4 rounded-lg shadow"
+                    >
+                        <p class="italic">
+                            “This app helped me organize my ideas fast before
+                            studio time!”
+                        </p>
+                        <p class="text-sm mt-2 text-right">
+                            -Indie Songwriter
+                        </p>
+                    </div>
+                    <div
+                        class="snap-start shrink-0 w-64 bg-gray-200 dark:bg-teal-900 dark:text-gray-200 p-4 rounded-lg shadow"
+                    >
+                        <p class="italic">
+                            “I love how it suggests chord progressions!”
+                        </p>
+                        <p class="text-sm mt-2 text-right"> -Producer</p>
+                    </div>
+                    <div
+                        class="snap-start shrink-0 w-64 bg-gray-200 dark:bg-teal-900 dark:text-gray-200 p-4 rounded-lg shadow"
+                    >
+                        <p class="italic">
+                            “A great tool for brainstorming and tracking musical
+                            ideas.”
+                        </p>
+                        <p class="text-sm mt-2 text-right"> -Composer</p>
+                    </div>
+                    <div
+                        class="snap-start shrink-0 w-64 bg-gray-200 dark:bg-teal-900 dark:text-gray-200 p-4 rounded-lg shadow"
+                    >
+                        <p class="italic">
+                            “A must. It helped me speed up my songwritting.”
+                        </p>
+                        <p class="text-sm mt-2 text-right"> -Composer</p>
+                    </div>
+                    <div
+                        class="snap-start shrink-0 w-64 bg-gray-200 dark:bg-teal-900 dark:text-gray-200 p-4 rounded-lg shadow"
+                    >
+                        <p class="italic">
+                            “So easy to use... Now I keep track of my musical tasks effortlessly.”
+                        </p>
+                        <p class="text-sm mt-2 text-right"> -Composer</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+            <!-- Footer -->
+        <footer
+            class="bg-gray-100 dark:bg-teal-900 text-gray-600 dark:text-gray-300 py-6 mt-12"
+        >
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <p class="mb-2">© 2025 NoteTrack</p>
+                <div
+                    class="flex justify-center space-x-6 text-gray-00 dark:text-gray-200 text-2xl"
+                >
+                    
+                    <a
+                        href="https://github.com/1sooophiii/ITC4214_internet_programming_midterm_project"
+                        target="_blank"
+                        aria-label="GitHub"
+                        class="hover:text-indigo-400"
+                    >
+                        <i data-feather="github"></i>
+                    </a>
+                    <a
+                        href="mailto:s.polychroni@acg.edu"
+                        target="_blank"
+                        aria-label="Email"
+                        class="hover:text-indigo-400"
+                    >
+                        <i data-feather="mail"></i>
+                    </a>
+                    <a
+                        href="https://instagram.com/"
+                        target="_blank"
+                        aria-label="Instagram"
+                        class="hover:text-indigo-400"
+                    >
+                        <i data-feather="instagram"></i>
+                    </a>
+                </div>
+        </footer>
+
+        <!-- for feather icons-->
+        <!-- replace function replaces all i elements with svg tags -->
+        <script>
+            feather.replace();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<!-- Navbar -->
+<!--sticky: is for the whole navbar to always stay on top of the page
+        top-0: position navbar on the top of the page 
+        shadow: adds drop shadow, z-50: z index is the third dimension and gets the navbar to be on front-->
+<header
+    class="sticky top-0 bg-emerald-200 dark:bg-teal-900 text-white shadow z-50"
+>
+    <!-- max-w-7xl: Max width for content
+            mx-auto: Center horizontally 
+            px-4: horizontal padding (also for small -sm and large -lg depending on screen size)-->
+    <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-800 dark:text-gray-50"
+    >
+        <!--flex: arrange elements in a container
+            justify-between: leave space between elements pushing them on the edges
+            items-center: centers items vertically
+            h-16: height
+            -->
+        <div class="flex justify-between items-center h-16">
+            <!-- text-xl: extra large font size
+                    font-bold: bold text-->
+            <div class="flex">
+                <i
+                    data-feather="music"
+                    class="w-6 h-6 mt-1 text-gray-800 dark:text-gray-50"
+                ></i>
+                <a
+                    href="index.html"
+                    class="text-xl font-bold text-gray-800 dark:text-gray-50"
+                    >NoteTrack</a
+                >
+            </div>
+            <!-- space on both x sides of anchor elements -->
+            <nav class="space-x-4 hidden md:block">
+                <a href="index.html" class="hover:text-indigo-400">Home</a>
+                <a href="tasks.html" class="hover:text-indigo-400">Tasks</a>
+                <a href="studio.html" class="hover:text-indigo-400">Studio</a>
+                <a href="about.html" class="hover:text-indigo-400">About</a>
+                <a href="contact.html" class="hover:text-indigo-400">Contact</a>
+                <!-- ml-4: left margin, p-2: padding, rounded: rounded corners on button, 
+                        hover: changes how the button will look when hovering, cursor pointer: changes cursor when hovering -->
+                <button
+                    id="toggle-dark"
+                    class="ml-4 p-2 rounded cursor-pointer"
+                >
+                    <i
+                        data-feather="moon"
+                        id="dark-icon"
+                        class="w-5 h-5 hover:text-indigo-500"
+                    ></i>
+                    <i
+                        data-feather="sun"
+                        id="light-icon"
+                        class="w-5 h-5 hover:text-yellow-500 hidden"
+                    ></i>
+                </button>
+            </nav>
+            <!-- Hamburger button -->
+            <button
+                id="mobileMenuBtn"
+                class="hidden hover:cursor-pointer"
+                aria-label="Toggle mobile menu"
+            >
+                <i
+                    data-feather="menu"
+                    class="w-6 h-6 text-gray-700 dark:text-gray-300"
+                ></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Menu -->
+<!-- Hidden on medium and large screens -->
+<!--block: will put the element on its own line and fill its parent-->
+<div
+    id="mobileMenu"
+    class="hidden md:hidden bg-white dark:bg-gray-700 border-t border-gray-200 dark:border-gray-700 px-4 py-2 text-right"
+>
+    <a href="index.html" class="block py-1 hover:text-indigo-400">Home</a>
+    <a href="tasks.html" class="block py-1 hover:text-indigo-400">Tasks</a>
+    <a href="about.html" class="block py-1 hover:text-indigo-400">About</a>
+    <a href="contact.html" class="block py-1 hover:text-indigo-400">Contact</a>
+    <a href="studio.html" class="block py-1 hover:text-indigo-400">Studio</a>
+    <div id="mobile-toggle-dark" class="block py-1 hover:text-indigo-400">
+        Dark/ Light Mode
+    </div>
+</div>
