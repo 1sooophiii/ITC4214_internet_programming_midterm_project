@@ -1,12 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const studioForm = document.querySelector("#studioForm");
-    const songTitle = document.querySelector("#songTitle");
-    const songNotes = document.querySelector("#songNotes");
-    const keySelect = document.querySelector("#key-select");
-    const moodButtons = document.querySelectorAll(
+$(document).ready(function () {
+    const $studioForm = $("#studioForm");
+    const $songTitle = $("#songTitle");
+    const $songNotes = $("#songNotes");
+    const $keySelect = $("#key-select");
+    const $moodButtons = $(
         ".bg-blue-500, .bg-yellow-500, .bg-red-500, .bg-purple-500"
     );
     let selectedMood = "";
+
     // Diatonic chords for each key
     const keyChords = {
         "C Major": ["C", "Dm", "Em", "F", "G", "Am", "Bdim"],
@@ -47,58 +48,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateChordSuggestions(selectedKey) {
         const chords = keyChords[selectedKey];
-        const suggestionList = document.querySelector("#chord-suggestions");
-        suggestionList.innerHTML = "";
+        const $suggestionList = $("#chord-suggestions");
+        $suggestionList.empty();
 
         if (!chords) {
-            suggestionList.innerHTML =
-                "<li>No chords available for this key.</li>";
+            $suggestionList.html("<li>No chords available for this key.</li>");
             return;
         }
 
+        // For each progression template, map index values to chord names,
+        // join them into a string, create an <li> element with the key and progression,
+        // then append it to the suggestion list in the DOM.
         progressionTemplates.forEach((progression, idx) => {
             const chordProgression = progression
+                // creates a new array by applying a function to each element of the original array
                 .map((i) => chords[i])
                 .join(" - ");
-            const li = document.createElement("li");
-            li.textContent = `${selectedKey}: ${chordProgression}`;
-            suggestionList.appendChild(li);
+            const $li = $("<li>").text(`${selectedKey}: ${chordProgression}`);
+            $suggestionList.append($li);
         });
     }
 
     // Attach event listener
-    document.getElementById("key-select").addEventListener("change", (e) => {
-        const selected = e.target.value;
+    $keySelect.on("change", function () {
+        const selected = $(this).val();
         if (selected && selected !== "Select a key") {
             updateChordSuggestions(selected);
         }
     });
 
     // Mood selection handler
-    moodButtons.forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-            e.preventDefault();
-            selectedMood = btn.textContent.trim();
+    $moodButtons.on("click", function (e) {
+        e.preventDefault();
+        selectedMood = $(this).text().trim();
 
-            // Optional: visually mark the selected one
-            moodButtons.forEach((b) =>
-                b.classList.remove("ring", "ring-offset-2")
-            );
-            btn.classList.add("ring", "ring-offset-2");
-        });
+        // visually mark the selected one
+        $moodButtons.removeClass("ring ring-offset-2");
+        $(this).addClass("ring ring-offset-2");
     });
-    studioForm.addEventListener("submit", (e) => {
+
+    $studioForm.on("submit", function (e) {
         e.preventDefault();
 
-        const selectedKey = keySelect.value;
+        const selectedKey = $keySelect.val();
 
         // Get selected instruments
-        const instrumentCheckboxes = studioForm.querySelectorAll(
-            'input[type="checkbox"]'
-        );
-        const selectedInstruments = Array.from(instrumentCheckboxes)
-            .filter((cb) => cb.checked)
-            .map((cb) => cb.parentElement.textContent.trim())
+        const instrumentCheckboxes = $studioForm.find('input[type="checkbox"]');
+
+        // filter only the checked ones,
+        // map to the label text (parent element's text),
+        // trim whitespace, and join all selected instrument names with commas.
+        const selectedInstruments = instrumentCheckboxes
+            .filter(":checked")
+            .map(function () {
+                return $(this).parent().text().trim();
+            })
+            .get()
             .join(", ");
 
         // Generate chord progressions
@@ -120,12 +125,12 @@ document.addEventListener("DOMContentLoaded", () => {
             `Suggested Progressions:\n${progressionText}`,
             `Mood: ${selectedMood || "Not selected"}`,
             `Instruments: ${selectedInstruments || "None"}`,
-            `Notes: ${songNotes.value.trim() || "No notes provided"}`,
+            `Notes: ${$songNotes.val().trim() || "No notes provided"}`,
         ];
         const fullDescription = descriptionParts.join("\n\n");
 
         const newTask = {
-            name: songTitle.value || "Untitled Song Idea",
+            name: $songTitle.val() || "Untitled Song Idea",
             description: fullDescription,
             date: new Date().toISOString().split("T")[0],
             status: "Pending",
@@ -138,15 +143,13 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("tasks", JSON.stringify(existing));
 
         // Reset form fields
-        songTitle.value = "";
-        songNotes.value = "";
-        keySelect.selectedIndex = 0;
-        instrumentCheckboxes.forEach((cb) => (cb.checked = false));
+        $songTitle.val("");
+        $songNotes.val("");
+        $keySelect.prop("selectedIndex", 0);
+        instrumentCheckboxes.prop("checked", false);
         selectedMood = "";
-        moodButtons.forEach((btn) =>
-            btn.classList.remove("ring", "ring-offset-2")
-        );
-        document.querySelector("#chord-suggestions").innerHTML = "";
+        $moodButtons.removeClass("ring ring-offset-2");
+        $("#chord-suggestions").empty();
 
         alert("Song saved as task!");
     });

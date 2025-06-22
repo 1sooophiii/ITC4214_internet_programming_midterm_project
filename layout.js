@@ -1,29 +1,27 @@
-const menuBtn = document.querySelector("#mobileMenuBtn");
-const mobileMenu = document.querySelector("#mobileMenu");
+$(document).ready(function () {
+    const $menuBtn = $("#mobileMenuBtn");
+    const $mobileMenu = $("#mobileMenu");
 
-//show or hide hamburger icon depending on window width
-const toggleBurger = () => {
-    const windowWidth = window.innerWidth;
-    const triggerCondition = windowWidth < 768;
+    //show or hide hamburger icon depending on window width
+    const toggleBurger = () => {
+        const triggerCondition = $(window).width() < 768;
 
-    if (triggerCondition) {
-        menuBtn.classList.remove("hidden");
-    } else {
-        menuBtn.classList.add("hidden");
-    }
-};
+        if (triggerCondition) {
+            $menuBtn.removeClass("hidden");
+        } else {
+            $menuBtn.addClass("hidden");
+        }
+    };
 
-//when window is resized call toggleBurger
-window.addEventListener("resize", () => {
     toggleBurger();
-});
 
-//when content is loaded also call it
-document.addEventListener("DOMContentLoaded", () => {
-    toggleBurger();
-});
+    //when window is resized call toggleBurger
+    $(window).on("resize", function () {
+        toggleBurger();
+    });
 
-//when hamburger menu button is clicked show or hide the mobile menu
-menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
+    //when hamburger menu button is clicked show or hide the mobile menu
+    $menuBtn.on("click", function () {
+        $mobileMenu.toggleClass("hidden");
+    });
 });

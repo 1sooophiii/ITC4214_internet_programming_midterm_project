@@ -5,9 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
             name="description"
-            content="NoteTrack - A songwriting task manager and creative studio for musicians."
+            content="NoteTrack is your all-in-one music composition and planning studio. Write down ideas, explore chord progressions, and manage your songwriting process."
         />
+
         <title>NoteTrack | About</title>
+
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <style type="text/tailwindcss">
             /* used from tailwind documentation for toggling dark mode: https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually */
@@ -16,6 +18,9 @@
         <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
         <script src="https://unpkg.com/feather-icons" defer></script>
+
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
         <!--javascript scripts-->
         <script src="darkmode.js " defer></script>
@@ -177,9 +182,7 @@
             <!-- Simple Carousel (testimonial/quote images) -->
             <section class="mb-12">
                 <h2 class="text-3xl font-bold mb-6 text-center">What Musicians Say</h2>
-                <div
-                    class="flex space-x-4 overflow-x-auto snap-x snap-mandatory pb-4"
-                >
+                <div class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar space-x-4 pb-4">
                     <div
                         class="snap-start shrink-0 w-64 bg-gray-200 dark:bg-teal-900 dark:text-gray-200 p-4 rounded-lg shadow"
                     >
